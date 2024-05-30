@@ -32,7 +32,7 @@ const Input = (props: InputProps) => {
                     padding: '5px',
                     outline: '0',
                     borderWidth: '0 0 2px',
-                    borderColor: isFocused ? 'blue' : 'black',
+                    borderColor: isFocused ? '#3366cc' : 'black',
                     transition: 'border-color 0.3s'
                 }}
             />

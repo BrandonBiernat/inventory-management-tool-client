@@ -3,14 +3,12 @@ import Button from "../components/button";
 import Input from "../components/input";
 import ErrorMessage from "../components/errorMessage";
 import axios from "axios";
-import { LoginResponse } from "../types/LoginResponse";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<string>('');
-    const [response, setResponse] = useState<LoginResponse>();
     const navigate = useNavigate();
 
     const onEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,10 +34,11 @@ const Login = () => {
         axios.post('http://localhost:8080/api/v1/auth/login', {
             email: email,
             password: password
+        }, {
+            withCredentials: true
         })
         .then((response) => {
-            setResponse(response.data);
-            console.log(response);
+            console.log(response)
             navigate('/home');
         })
         .catch((error) => {

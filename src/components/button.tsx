@@ -31,9 +31,9 @@ const Button = (props: ButtonProps) => {
                 width: '100%',
                 padding: '10px',
                 borderRadius: '10px',
-                backgroundColor: isHovered ? 'blue' : 'black',
+                backgroundColor: '#3366cc',
                 color: 'white',
-                transition: 'background-color 0.3s',
+                transition: 'box-shadow 0.3s',
                 boxShadow: isHovered ? '0 0 10px rgba(0, 0, 255, 0.5)' : 'none'
             }}>
                 {props.text}
