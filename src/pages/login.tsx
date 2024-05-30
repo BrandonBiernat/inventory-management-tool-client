@@ -2,11 +2,14 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import Button from "../components/button";
 import Input from "../components/input";
 import ErrorMessage from "../components/errorMessage";
+import axios from "axios";
+import { LoginResponse } from "../types/LoginResponse";
 
 const Login = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<string>('');
+    const [response, setResponse] = useState<LoginResponse>();
 
     const onEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
@@ -20,18 +23,28 @@ const Login = () => {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        console.log(`Form submitted: email: ${email} password: ${password}`)
-
         if(email === '' || password === '') {
             setError('Both email and password are required');
             return;
         }
-
-        // handle login process
+        loginUser();
     }
 
     const loginUser = () => {
-        
+        axios.post('http://localhost:8080/api/v1/auth/login', {
+            email: email,
+            password: password
+        })
+        .then((response) => {
+            setResponse(response.data);
+            console.log(response);
+        })
+        .catch((error) => {
+            if(error.response.status === 403) {
+                setError('Email or password incorrect');
+            } 
+            console.log(error);
+        });
     }
 
     return (
