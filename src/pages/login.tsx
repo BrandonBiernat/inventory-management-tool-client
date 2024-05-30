@@ -42,9 +42,7 @@ const Login = () => {
             navigate('/home');
         })
         .catch((error) => {
-            if(error.response.status === 403) {
-                setError('Email or password incorrect');
-            } 
+            setError('Email or password incorrect');
             console.log(error);
         });
     }
