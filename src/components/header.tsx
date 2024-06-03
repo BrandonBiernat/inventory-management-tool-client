@@ -12,7 +12,8 @@ const Header = () => {
             boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
             display: 'flex',
             alignItems: 'center',
-            padding: '10px 20px'
+            padding: '10px 20px',
+            transition: 'background-color 0.3 ease, color 0.3 ease'
         }}>
             <div>Header</div>
             <div style={{ marginLeft: 'auto' }}>

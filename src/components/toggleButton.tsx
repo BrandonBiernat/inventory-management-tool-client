@@ -1,5 +1,3 @@
-import { useTheme } from "../themeProvider";
-
 interface ToggleButtonProps {
     isDarkMode: boolean;
     toggle: () => void;

@@ -6,9 +6,8 @@ const Home = () => {
 
     return (
         <>
-            <Header />
             <div style={{
-                backgroundColor: isDarkMode ? '#333333' : '#f0f0f0',
+                backgroundColor: isDarkMode ? '#333333' : '#e6e6e6',
                 color: isDarkMode ? 'white' : 'black',
                 display: 'flex',
                 justifyContent: 'center',

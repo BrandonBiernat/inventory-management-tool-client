@@ -3,6 +3,7 @@ import Home from './pages/home';
 import Login from './pages/login';
 import Register from './pages/register';
 import NoPage from './pages/noPage';
+import Header from './components/header';
 
 function App() {
   const router = createBrowserRouter([
@@ -25,7 +26,11 @@ function App() {
   ]);
 
   return (
-    <RouterProvider router={router} />
+    <>
+      {window.location.href === 'http://localhost:3000/'         || 
+       window.location.href === 'http://localhost:3000/register'  ? <></> : <Header /> }
+      <RouterProvider router={router} />
+    </>
   );
 }
 

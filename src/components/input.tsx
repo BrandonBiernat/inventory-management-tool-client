@@ -4,6 +4,9 @@ interface InputProps {
     type: string;
     placeholder: string;
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    pattern?: string;
+    isRequired?: boolean;
+    invalid?: boolean;
 }
 
 const Input = (props: InputProps) => {
@@ -25,6 +28,8 @@ const Input = (props: InputProps) => {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 onChange={props.onChange}
+                pattern={props.pattern}
+                required={props.isRequired}
                 style={{
                     fontSize: '1em',
                     width: '100%',

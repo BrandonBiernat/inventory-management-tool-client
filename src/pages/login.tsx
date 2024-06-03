@@ -3,7 +3,7 @@ import Button from "../components/button";
 import Input from "../components/input";
 import ErrorMessage from "../components/errorMessage";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState<string>('');
@@ -42,7 +42,7 @@ const Login = () => {
             navigate('/home');
         })
         .catch((error) => {
-            setError('Email or password incorrect');
+            setError(error.response.data);
             console.log(error);
         });
     }
@@ -53,7 +53,7 @@ const Login = () => {
             justifyContent: 'center',
             alignItems: 'center',
             minHeight: '100vh',
-            backgroundColor: '#f0f0f0',
+            backgroundColor: '#e6e6e6',
         }}>
             <div style={{
                 display: 'flex',
@@ -106,12 +106,12 @@ const Login = () => {
                     <br />
                     <p>
                         Don't have an account?
-                        <a 
-                            href=""
-                            style={{ 
-                                    color: '#007bff', 
-                                    textDecoration: 'none',
-                            }}> Sign Up</a>
+                        <Link
+                            to='/register'
+                            style={{
+                                color: '#007bff', 
+                                textDecoration: 'none',
+                            }}> Sign Up</Link>
                     </p>                        
                 </div>
             </div>
